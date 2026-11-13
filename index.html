@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#32145d">
+<title>أبطال تحدي الدراسات الاجتماعية</title>
+<style>
+:root{--purple:#32145d;--purple2:#51258a;--gold:#d6ad52;--cream:#fffaf0;--ink:#261b35;--muted:#786e83;--line:#eadff3;--green:#277a58;--red:#b64c57}
+*{box-sizing:border-box}body{margin:0;background:#f7f3fb;color:var(--ink);font-family:Tahoma,Arial,sans-serif}
+header{background:linear-gradient(125deg,#261044,#51258a);color:white;padding:24px clamp(16px,4vw,48px);position:relative;overflow:hidden}
+header:after{content:"✦　✧　✦";position:absolute;left:5%;top:18px;color:#e8ca82;font-size:32px;opacity:.5}
+.brand{display:flex;align-items:center;gap:15px}.cup{font-size:42px}.brand h1{margin:0;font-size:clamp(22px,3vw,34px)}.brand p{margin:8px 0 0;color:#eadff6}
+nav{display:flex;gap:8px;flex-wrap:wrap;padding:14px clamp(12px,4vw,48px);background:white;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav button,.btn{border:0;border-radius:12px;padding:11px 16px;background:#eee6f6;color:var(--purple);font-weight:bold;cursor:pointer;font-size:14px}
+nav button.active,.btn.primary{background:var(--purple);color:white}button:hover{filter:brightness(.97)}button:disabled{opacity:.45;cursor:not-allowed}
+main{max-width:1200px;margin:24px auto;padding:0 16px 50px}.view{display:none}.view.active{display:block}
+h2{color:var(--purple);margin:0 0 16px;font-size:23px}h3{margin:0 0 12px;color:var(--purple)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.stat,.panel,.round,.team-card{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 5px 18px #35175d0b}
+.stat small{color:var(--muted)}.stat strong{display:block;font-size:30px;color:var(--purple);margin-top:7px}
+.panel{margin-top:16px}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.muted{color:var(--muted);font-size:13px}.rounds{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.round{border-top:4px solid var(--gold)}.round .num{color:var(--gold);font-weight:bold}.round h3{margin:7px 0}.round p{font-size:13px;line-height:1.7;color:var(--muted)}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid #d9cce5;border-radius:10px;background:#fff;font:inherit;color:var(--ink);margin-top:6px}
+label{display:block;font-size:13px;font-weight:bold;color:#51435f;margin-bottom:12px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.btn.gold{background:#f6ebcf;color:#67490b}.btn.danger{background:#fae7e8;color:#9e3440}.btn.light{background:#f1edf5}
+table{width:100%;border-collapse:collapse;margin-top:10px;background:white}th,td{padding:12px 10px;text-align:right;border-bottom:1px solid var(--line);font-size:14px}th{background:#f5effa;color:var(--purple)}
+.empty{text-align:center;color:var(--muted);padding:26px}.tag{display:inline-block;background:#f5edfc;color:var(--purple);padding:5px 9px;border-radius:20px;font-size:12px}
+.score-input{max-width:82px}.notice{background:#fff8e8;border:1px solid #f0dfb7;border-radius:12px;padding:12px;color:#70551a;font-size:13px;line-height:1.7}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+.certificate{display:none}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.rounds{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.grid,.rounds,.form-grid{grid-template-columns:1fr}nav{position:static}nav button{flex:1 1 42%}.brand{align-items:flex-start}}
+@media print{body{background:white}header,nav,footer,.no-print{display:none!important}main{margin:0;padding:0}.view{display:none!important}#certificatePrint{display:block!important}.cert{border:8px double #c49a3d;padding:38px;text-align:center;min-height:90vh;color:#32145d}.cert h1{font-size:34px}.cert .award{font-size:54px;margin:20px}.cert .name{font-size:30px;color:#9a7427;margin:28px}.cert p{font-size:18px;line-height:2}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand"><div class="cup">🏆</div><div><h1>أبطال تحدي الدراسات الاجتماعية</h1><p>نفكر معاً… نبدع معاً… وننتصر بأخلاقنا!</p></div></div>
+</header>
+<nav class="no-print" id="nav">
+ <button class="active" data-view="home">الرئيسية</button>
+ <button data-view="teams">الفرق والطالبات</button>
+ <button data-view="scores">تسجيل الدرجات</button>
+ <button data-view="leaderboard">لوحة الصدارة</button>
+ <button data-view="cards">بطاقات التحدي</button>
+ <button data-view="awards">الشهادات</button>
+</nav>
+<main>
+<section id="home" class="view active">
+ <div class="row"><div><h2>لوحة البطولة</h2><div class="muted">متابعة منافسات الصفوف الرابع والخامس والسادس</div></div><span class="tag">نسخة تجريبية محلية</span></div>
+ <div class="grid" style="margin-top:16px">
+  <div class="stat"><small>إجمالي الفرق</small><strong id="statTeams">0</strong></div>
+  <div class="stat"><small>الجولات</small><strong>6</strong></div>
+  <div class="stat"><small>المهام المسجلة</small><strong id="statScores">0</strong></div>
+  <div class="stat"><small>الصفوف المشاركة</small><strong>3</strong></div>
+ </div>
+ <div class="panel"><h3>مراحل البطولة</h3><div class="rounds" id="roundOverview"></div></div>
+ <div class="panel"><h3>معايير التحكيم – من 100 درجة</h3>
+  <div class="grid">
+   <div><b>صحة المعلومات</b><div class="muted">25 درجة</div></div><div><b>التفكير والتحليل</b><div class="muted">20 درجة</div></div><div><b>الإبداع</b><div class="muted">20 درجة</div></div><div><b>التعاون</b><div class="muted">15 درجة</div></div><div><b>جودة المنتج</b><div class="muted">10 درجات</div></div><div><b>العرض والإقناع</b><div class="muted">10 درجات</div></div>
+  </div>
+ </div>
+ <div class="notice" style="margin-top:16px">تنبيه: تحفظ هذه النسخة البيانات على الجهاز والمتصفح الحالي فقط. لا تُعد قاعدة بيانات مشتركة بين الأجهزة. لا تضعي بيانات شخصية حساسة للطالبات في النسخة التجريبية.</div>
+</section>
+
+<section id="teams" class="view">
+ <div class="row"><div><h2>إدارة الفرق</h2><p class="muted">أضيفي فرق كل صف، ثم أضيفي أسماء الطالبات أو اتركيها فارغة مؤقتاً.</p></div></div>
+ <div class="panel">
+  <h3>إضافة فريق جديد</h3>
+  <form id="teamForm">
+   <div class="form-grid">
+    <label>اسم الفريق<input id="teamName" required placeholder="مثال: نجمات المعرفة"></label>
+    <label>الصف<select id="teamGrade"><option value="الرابع">الرابع</option><option value="الخامس">الخامس</option><option value="السادس">السادس</option></select></label>
+    <label style="grid-column:1/-1">أسماء الطالبات (افصلي بين الأسماء بفاصلة)<textarea id="teamMembers" rows="2" placeholder="اسم الطالبة، اسم الطالبة"></textarea></label>
+   </div><button class="btn primary">إضافة الفريق</button>
+  </form>
+ </div>
+ <div class="panel"><div class="row"><h3>الفرق المسجلة</h3><span class="muted" id="teamCount">0 فريق</span></div><div id="teamList"></div></div>
+</section>
+
+<section id="scores" class="view">
+ <h2>تسجيل درجات الجولة</h2>
+ <div class="panel">
+  <form id="scoreForm">
+   <div class="form-grid">
+    <label>الفريق<select id="scoreTeam" required></select></label>
+    <label>الجولة<select id="scoreRound"></select></label>
+    <label>صحة المعلومات /25<input type="number" min="0" max="25" value="0" id="s1" required></label>
+    <label>التفكير والتحليل /20<input type="number" min="0" max="20" value="0" id="s2" required></label>
+    <label>الإبداع /20<input type="number" min="0" max="20" value="0" id="s3" required></label>
+    <label>التعاون /15<input type="number" min="0" max="15" value="0" id="s4" required></label>
+    <label>جودة المنتج /10<input type="number" min="0" max="10" value="0" id="s5" required></label>
+    <label>العرض والإقناع /10<input type="number" min="0" max="10" value="0" id="s6" required></label>
+   </div>
+   <label>ملاحظات المحكّمة<textarea id="scoreNotes" rows="2"></textarea></label>
+   <div class="row"><b>المجموع: <span id="scoreTotal">0</span> / 100</b><button class="btn primary">حفظ الدرجة</button></div>
+  </form>
+ </div>
+ <div class="panel"><h3>السجلات المسجلة</h3><div id="scoreList"></div></div>
+</section>
+
+<section id="leaderboard" class="view">
+ <h2>لوحة الصدارة</h2><p class="muted">تُعرض النتائج تراكمياً، مع ترتيب مستقل لكل صف.</p>
+ <div id="leaderboards"></div>
+</section>
+
+<section id="cards" class="view">
+ <h2>بطاقات التحدي السرية</h2><p class="muted">اختاري الجولة والصف لعرض بطاقة المهمة. يمكن طباعتها وتوزيعها على الفرق.</p>
+ <div class="panel">
+  <div class="form-grid"><label>الجولة<select id="cardRound"></select></label><label>الصف<select id="cardGrade"><option>الرابع</option><option>الخامس</option><option>السادس</option></select></label></div>
+  <div id="challengeCard"></div>
+  <button class="btn primary no-print" onclick="window.print()">طباعة البطاقة</button>
+ </div>
+</section>
+
+<section id="awards" class="view">
+ <h2>إصدار شهادة تقدير</h2>
+ <div class="panel">
+  <div class="form-grid">
+   <label>اسم الفريق أو الطالبة<input id="awardName" placeholder="اكتبي الاسم"></label>
+   <label>نوع التكريم<select id="awardType"><option>بطلات التحدي</option><option>وصيفات البطولة</option><option>فريق الإنجاز المتميز</option><option>صاحبات الفكرة الذهبية</option><option>فريق الروح الواحدة</option><option>نجمة الإنجاز</option></select></label>
+   <label>الصف<select id="awardGrade"><option>الرابع</option><option>الخامس</option><option>السادس</option></select></label>
+   <label>اسم المعلمة<input value="فاطمة الحربي" id="teacherName"></label>
+  </div>
+  <button class="btn primary" id="makeCert">معاينة الشهادة وطباعتها</button>
+ </div>
+</section>
+<section id="certificatePrint" class="certificate"><div class="cert"><div style="font-size:22px">الابتدائية الرابعة</div><div class="award">🏆 ✦ 🏆</div><h1>شهادة تقدير</h1><p>تُمنح بكل فخر واعتزاز إلى</p><div class="name" id="certName"></div><p>وذلك تقديراً لتميزها ومشاركتها في<br><b>أبطال تحدي الدراسات الاجتماعية</b></p><h2 id="certType"></h2><p id="certGrade"></p><div style="margin-top:50px">معلمتك: <b id="certTeacher">فاطمة الحربي</b></div><p style="color:#9a7427">نفكر معاً… نبدع معاً… وننتصر بأخلاقنا!</p></div></section>
+</main>
+<footer>أبطال تحدي الدراسات الاجتماعية · إعداد المعلمة فاطمة الحربي · الابتدائية الرابعة</footer>
+<script>
+const rounds=[
+ {name:"مستكشفات المعرفة",task:"اقرأن الخريطة وحددن المواقع والاتجاهات، ثم قدمن تفسيراً لاختياركن.",product:"خريطة مشروحة مع مفتاح ورموز"},
+ {name:"صانعات التاريخ",task:"رتبن أحداثاً تاريخية زمنياً، واخترن حدثاً واشرحن أثره في بناء الوطن.",product:"خط زمني وتعليق تاريخي"},
+ {name:"عبقريات الجغرافيا",task:"حللن مظاهر سطح متنوعة، وقارنّ بين خصائصها وأثرها في حياة السكان.",product:"لوحة مقارنة أو مجسم مبسط"},
+ {name:"حارسات الوطن",task:"حددن مشكلة بيئية أو مجتمعية، واقترحن حلولاً عملية قابلة للتطبيق.",product:"ملصق توعوي وخطة حلول"},
+ {name:"سفيرات الهوية",task:"اختَرن معلماً أو مظهراً من التراث الوطني، وقدمنه بطريقة إبداعية.",product:"بطاقة تعريف أو عرض قصير"},
+ {name:"التحدي الأسطوري",task:"أنجزن مشروعاً تكاملياً يوظف مهارات البحث والتحليل والتعاون.",product:"مشروع متكامل مع عرض"}
+];
+const gradePrompts={
+ "الرابع":"حددن، صنفن، سمّين، أوضحْن بمثال.",
+ "الخامس":"قارنّ، فسّرن، رتبن، واستنتجن.",
+ "السادس":"حللن، بررن الرأي بالأدلة، واقترحن حلولاً."
+};
+let data=JSON.parse(localStorage.getItem("socialChampions")||'{"teams":[],"scores":[]}');
+const save=()=>localStorage.setItem("socialChampions",JSON.stringify(data));
+const $=id=>document.getElementById(id);
+function show(view){document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));$(view).classList.add("active");document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===view));if(view==="leaderboard")renderBoards();}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>show(b.dataset.view));
+function fillRoundSelect(id){$(id).innerHTML=rounds.map((r,i)=>`<option value="${i}">الجولة ${i+1}: ${r.name}</option>`).join("");}
+["scoreRound","cardRound"].forEach(fillRoundSelect);
+function renderTeams(){
+ $("teamCount").textContent=data.teams.length+" فريق";$("statTeams").textContent=data.teams.length;
+ $("teamList").innerHTML=data.teams.length?`<table><thead><tr><th>الفريق</th><th>الصف</th><th>أسماء المشاركات</th><th>إجراء</th></tr></thead><tbody>${data.teams.map(t=>`<tr><td><b>${esc(t.name)}</b></td><td>${t.grade}</td><td>${esc(t.members||"—")}</td><td><button class="btn danger" onclick="deleteTeam('${t.id}')">حذف</button></td></tr>`).join("")}</tbody></table>`:'<div class="empty">لم تتم إضافة فرق بعد.</div>';
+ $("scoreTeam").innerHTML=data.teams.map(t=>`<option value="${t.id}">${esc(t.name)} – ${t.grade}</option>`).join("");
+}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+$("teamForm").onsubmit=e=>{e.preventDefault();data.teams.push({id:crypto.randomUUID(),name:$("teamName").value.trim(),grade:$("teamGrade").value,members:$("teamMembers").value.trim()});save();e.target.reset();renderAll();};
+function deleteTeam(id){if(!confirm("هل تريدين حذف الفريق؟ ستبقى درجاته محفوظة كسجلات سابقة."))return;data.teams=data.teams.filter(t=>t.id!==id);save();renderAll();}
+const fields=["s1","s2","s3","s4","s5","s6"];fields.forEach(id=>$(id).oninput=updateTotal);
+function updateTotal(){$("scoreTotal").textContent=fields.reduce((a,id)=>a+(Number($(id).value)||0),0);}
+$("scoreForm").onsubmit=e=>{e.preventDefault();let vals=fields.map(id=>Number($(id).value));let max=[25,20,20,15,10,10];if(vals.some((v,i)=>v<0||v>max[i])){alert("تحققي من أن كل درجة ضمن الحد الأعلى المحدد.");return;}if(!data.teams.length){alert("أضيفي فريقاً أولاً.");return;}data.scores.push({id:crypto.randomUUID(),teamId:$("scoreTeam").value,round:Number($("scoreRound").value),vals,total:vals.reduce((a,b)=>a+b,0),notes:$("scoreNotes").value});save();e.target.reset();fields.forEach((id,i)=>$(id).value=0);updateTotal();renderAll();};
+function teamName(id){return data.teams.find(t=>t.id===id)?.name||"فريق محذوف";}
+function renderScores(){
+ $("statScores").textContent=data.scores.length;
+ $("scoreList").innerHTML=data.scores.length?`<table><thead><tr><th>الفريق</th><th>الجولة</th><th>الدرجة</th><th>ملاحظات</th><th></th></tr></thead><tbody>${data.scores.map(s=>`<tr><td>${esc(teamName(s.teamId))}</td><td>${rounds[s.round].name}</td><td><b>${s.total}/100</b></td><td>${esc(s.notes||"—")}</td><td><button class="btn danger" onclick="deleteScore('${s.id}')">حذف</button></td></tr>`).join("")}</tbody></table>`:'<div class="empty">لا توجد درجات مسجلة.</div>';
+}
+function deleteScore(id){if(confirm("حذف سجل الدرجة؟")){data.scores=data.scores.filter(s=>s.id!==id);save();renderAll();}}
+function totals(grade){return data.teams.filter(t=>t.grade===grade).map(t=>({team:t,score:data.scores.filter(s=>s.teamId===t.id).reduce((a,s)=>a+s.total,0),count:data.scores.filter(s=>s.teamId===t.id).length})).sort((a,b)=>b.score-a.score);}
+function renderBoards(){$("leaderboards").innerHTML=["الرابع","الخامس","السادس"].map(g=>{let rows=totals(g);return `<div class="panel"><h3>الصف ${g}</h3>${rows.length?`<table><thead><tr><th>الترتيب</th><th>الفريق</th><th>عدد الجولات المسجلة</th><th>المجموع التراكمي</th></tr></thead><tbody>${rows.map((r,i)=>`<tr><td>${["🥇","🥈","🥉"][i]||i+1}</td><td><b>${esc(r.team.name)}</b></td><td>${r.count}</td><td><b>${r.score}</b></td></tr>`).join("")}</tbody></table>`:'<div class="empty">لا توجد فرق في هذا الصف حتى الآن.</div>'}</div>`}).join("");}
+function renderRounds(){$("roundOverview").innerHTML=rounds.map((r,i)=>`<div class="round"><div class="num">الجولة ${i+1}</div><h3>${r.name}</h3><p>${r.task}</p><span class="tag">${r.product}</span></div>`).join("");}
+function renderCard(){let i=Number($("cardRound").value||0),g=$("cardGrade").value,r=rounds[i];$("challengeCard").innerHTML=`<div class="panel" style="border:2px dashed #c6a45b;background:#fffdf7"><div class="row"><span class="tag">بطاقة مهمة سرية</span><b>الجولة ${i+1}</b></div><h2 style="margin-top:18px">${r.name}</h2><p><b>الفريق:</b> ....................................................</p><p><b>الصف:</b> ${g}</p><h3>التحدي</h3><p style="line-height:2">${r.task}</p><h3>مستوى المهمة</h3><p>${gradePrompts[g]}</p><h3>المنتج النهائي</h3><p>${r.product}</p><p><b>زمن التنفيذ:</b> يحدد من المعلمة حسب الحصة.</p><hr><p>معلمتكن: فاطمة الحربي · الابتدائية الرابعة</p></div>`;}
+$("cardRound").onchange=renderCard;$("cardGrade").onchange=renderCard;
+$("makeCert").onclick=()=>{let n=$("awardName").value.trim();if(!n){alert("اكتبي اسم الفريق أو الطالبة أولاً.");return;} $("certName").textContent=n;$("certType").textContent=$("awardType").value;$("certGrade").textContent="الصف "+$("awardGrade").value;$("certTeacher").textContent=$("teacherName").value;document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));window.print();};
+function renderAll(){renderTeams();renderScores();renderRounds();renderCard();$("statTeams").textContent=data.teams.length;$("statScores").textContent=data.scores.length;}
+renderAll();updateTotal();
+</script>
+</body></html>
